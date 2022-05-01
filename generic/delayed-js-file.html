@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>tjstr.</title>
+</head>
+
+<body>
+	<header>
+		<h1>Tool Box</h1>
+	</header>
+
+	<nav>
+		<a href="/index.html">Home</a>
+	</nav>
+
+	<div>
+		<h2>Generic - Delayed JS File</h2>
+		<p>A JS file is loaded after 30 seconds.</p>
+		<p id="countdown"></p>
+	</div>
+
+	<script type="text/javascript">
+		function sleep(ms) {
+			return new Promise(resolve => setTimeout(resolve, ms));
+		}
+
+		async function countdown() {
+			let time = 10;
+			for (let i = time; i > 0; i--) {
+				document.getElementById("countdown").innerHTML = `⏰ ${i}...`;
+				await sleep(1000);
+			}
+			var scriptTag = document.createElement('script');
+			scriptTag.src = 'countdown-complete.js';
+			document.getElementsByTagName('head')[0].appendChild(scriptTag);
+		}
+
+		countdown();
+	</script>
+</body>
+
+</html>
