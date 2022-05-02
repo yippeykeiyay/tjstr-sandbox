@@ -28,7 +28,7 @@
 		async function countdown() {
 			let time = 10;
 			for (let i = time; i > 0; i--) {
-				document.getElementById("countdown").innerHTML = `⏰ ${i}...`;
+				document.getElementById("countdown").innerHTML = `${i}...`;
 				await sleep(1000);
 			}
 			var scriptTag = document.createElement('script');
